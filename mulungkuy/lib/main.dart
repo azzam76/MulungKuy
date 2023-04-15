@@ -10,7 +10,7 @@ class LoginPage extends StatelessWidget {
     return MaterialApp(
       title: 'Discord Login',
       home: Scaffold(
-        backgroundColor: Color(0xFF2C2F33),
+        backgroundColor: Color(0xFFFCFDFE),
         body: Center(
           child: Container(
             margin: EdgeInsets.all(20.0),
@@ -18,25 +18,33 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Welcome to MulungKuy!',
+                  'Hai!',
                   style: TextStyle(
-                    fontSize: 28.0,
-                    color: Colors.white,
+                    fontSize: 32.0,
+                    color: Color.fromARGB(255, 0, 0, 0),
                     fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'Selamat Datang \n       Kembali.\n',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontWeight: FontWeight.normal,
                   ),
                 ),
                 SizedBox(height: 20.0),
                 TextField(
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                   decoration: InputDecoration(
-                    hintText: 'Email or Phone number',
+                    hintText: 'Email',
                     hintStyle: TextStyle(color: Color(0xFF99AAB5)),
                     filled: true,
-                    fillColor: Colors.white.withOpacity(0.1),
+                    fillColor: Color(0xFFEBF0F5),
                     contentPadding: EdgeInsets.all(15.0),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Colors.white.withOpacity(0.1),
+                        color: Color(0xFFEBF0F5),
                       ),
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -48,16 +56,16 @@ class LoginPage extends StatelessWidget {
                 ),
                 SizedBox(height: 10.0),
                 TextField(
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                   decoration: InputDecoration(
                     hintText: 'Password',
                     hintStyle: TextStyle(color: Color(0xFF99AAB5)),
                     filled: true,
-                    fillColor: Colors.white.withOpacity(0.1),
+                    fillColor: Color(0xFFEBF0F5),
                     contentPadding: EdgeInsets.all(15.0),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Colors.white.withOpacity(0.1),
+                        color: Color(0xFFEBF0F5),
                       ),
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -75,7 +83,7 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {},
                     child: Text('Login'),
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xFF7289DA),
+                      primary: Color(0xFF57AE09),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0),
                       ),
@@ -91,6 +99,22 @@ class LoginPage extends StatelessWidget {
                     style: TextStyle(
                       color: Color(0xFF99AAB5),
                     ),
+                  ),
+                ),
+                Text(
+                  '\n\n\nBelum Punya Akun?',
+                  style: TextStyle(
+                    fontSize: 15.0,
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+                Text(
+                  'Daftar',
+                  style: TextStyle(
+                    fontSize: 15.0,
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ],
