@@ -1,6 +1,79 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(LoginPage());
+// class GarbageSellingAppHomePage extends StatelessWidget {
+//   const GarbageSellingAppHomePage({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.grey[200],
+//       appBar: AppBar(
+//         backgroundColor: Color(0xff57AE09),
+//         title: Text('Garbage Selling App'),
+//       ),
+//       body: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         crossAxisAlignment: CrossAxisAlignment.center,
+//         children: [
+//           Container(
+//             padding: EdgeInsets.symmetric(vertical: 16.0),
+//             child: Image.asset(
+//               'assets/images/garbage.png',
+//               width: 200.0,
+//             ),
+//           ),
+//           Text(
+//             'Welcome to the Garbage Selling App',
+//             style: TextStyle(
+//               fontSize: 24.0,
+//               fontWeight: FontWeight.bold,
+//               color: Color(0xff57AE09),
+//             ),
+//           ),
+//           SizedBox(height: 8.0),
+//           Text(
+//             'Sell your trash to earn cash!',
+//             style: TextStyle(fontSize: 18.0),
+//           ),
+//           SizedBox(height: 32.0),
+//           ElevatedButton(
+//             style: ButtonStyle(
+//               backgroundColor:
+//                   MaterialStateProperty.all<Color>(Color(0xff57AE09)),
+//             ),
+//             onPressed: () {
+//               // Navigate to the sell garbage screen
+//             },
+//             child: Padding(
+//               padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
+//               child: Text(
+//                 'Sell Garbage',
+//                 style: TextStyle(fontSize: 18.0),
+//               ),
+//             ),
+//           ),
+//           SizedBox(height: 16.0),
+//           ElevatedButton(
+//             style: ButtonStyle(
+//               backgroundColor:
+//                   MaterialStateProperty.all<Color>(Color(0xff57AE09)),
+//             ),
+//             onPressed: () {
+//               // Navigate to the buy garbage screen
+//             },
+//             child: Padding(
+//               padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
+//               child: Text(
+//                 'Buy Garbage',
+//                 style: TextStyle(fontSize: 18.0),
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 //Login Page
 
@@ -35,7 +108,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 SizedBox(height: 20.0),
                 TextField(
-                  style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                  style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     hintText: 'Email',
                     hintStyle: TextStyle(color: Color(0xFF99AAB5)),
@@ -56,7 +129,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 SizedBox(height: 10.0),
                 TextField(
-                  style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                  style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     hintText: 'Password',
                     hintStyle: TextStyle(color: Color(0xFF99AAB5)),
@@ -102,7 +175,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '\n\n\nBelum Punya Akun?',
+                  '\n\nBelum Punya Akun?',
                   style: TextStyle(
                     fontSize: 15.0,
                     color: Color.fromARGB(255, 0, 0, 0),
@@ -110,9 +183,9 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Daftar',
+                  'Daftar disini',
                   style: TextStyle(
-                    fontSize: 15.0,
+                    fontSize: 17.0,
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontWeight: FontWeight.bold,
                   ),
