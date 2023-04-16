@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mulungkuy/WelcomePage.dart';
 import 'package:mulungkuy/hompage.dart';
 import 'package:mulungkuy/login.dart';
 import 'package:mulungkuy/order.dart';
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => LoginPage(),
+        '/': (context) => WelcomePage(),
+        '/login': (context) => LoginPage(),
         '/home': (context) => HomePage(),
         '/order': (context) => OrderPage(),
       },

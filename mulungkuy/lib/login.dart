@@ -31,7 +31,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 SizedBox(height: 20.0),
                 TextField(
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                   decoration: InputDecoration(
                     hintText: 'Email',
                     hintStyle: TextStyle(color: Color(0xFF99AAB5)),

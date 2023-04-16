@@ -55,7 +55,7 @@ class _OrderPageState extends State<OrderPage> {
                 Text(
                   'Alamat Tersimpan',
                   style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 35, 35, 35)),
                 ),
@@ -84,7 +84,7 @@ class _OrderPageState extends State<OrderPage> {
                 Text(
                   'Nama',
                   style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 35, 35, 35)),
                 ),
@@ -113,7 +113,7 @@ class _OrderPageState extends State<OrderPage> {
                 Text(
                   'Alamat',
                   style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 0, 0, 0)),
                 ),
@@ -142,7 +142,7 @@ class _OrderPageState extends State<OrderPage> {
                 Text(
                   'Nomor Telepon',
                   style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 35, 35, 35)),
                 ),
@@ -182,7 +182,7 @@ class _OrderPageState extends State<OrderPage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(32.0),
                       ),
-                      textStyle: TextStyle(fontSize: 20.0),
+                      textStyle: TextStyle(fontSize: 15),
                     ),
                   ),
                 ),
