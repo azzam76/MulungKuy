@@ -36,8 +36,8 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
             Container(
-              width: 200,
-              height: 200,
+              width: 300,
+              height: 300,
               child: Image.asset(
                   'assets/images/welcomepage.png'), // load the image
             ),
@@ -45,7 +45,7 @@ class WelcomePage extends StatelessWidget {
             SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                // do something
+                Navigator.pushNamed(context, '/login'); // go to login
               },
               child: Text(
                 'Masuk',
@@ -70,7 +70,7 @@ class WelcomePage extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // do something
+                Navigator.pushNamed(context, '/login'); // go to registration
               },
               child: Text('Registrasi'),
               style: ButtonStyle(
