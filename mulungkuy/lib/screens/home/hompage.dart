@@ -1,10 +1,52 @@
+import 'package:mulungkuy/services/auth.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _Home();
+  }
+}
+
+class _Home extends State<Home> {
+  final AuthService _auth = new AuthService();
 
   @override
   Widget build(BuildContext context) {
+    final SignOut = ElevatedButton(
+      onPressed: () async {
+        await _auth.signOut();
+      },
+      style: ElevatedButton.styleFrom(
+        primary: Colors.blueGrey[800],
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+      ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.logout,
+              color: Colors.white,
+              size: 24.0,
+            ),
+            SizedBox(width: 10.0),
+            Text(
+              'Sign Out',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+
     return MaterialApp(
       title: 'Home Page',
       theme: ThemeData(
@@ -101,7 +143,9 @@ class HomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/history');
+                        },
                         child: Text('History'),
                         style: ElevatedButton.styleFrom(
                           padding:
@@ -133,8 +177,9 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 200,
-              )
+                height: 30,
+              ),
+              SignOut,
             ],
           ),
         ),

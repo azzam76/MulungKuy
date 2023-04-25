@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "101244818784",
+    "project_id": "mulung-kuy",
+    "storage_bucket": "mulung-kuy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101244818784:android:c183e021ca33326b30fa05",
+        "android_client_info": {
+          "package_name": "com.example.mulungkuy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "101244818784-51qo6id36ebmb5ah1036i83cmbh3tv0s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIn_THQBH84fh0OfR3a8PQfhukjYXQ-qw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "101244818784-51qo6id36ebmb5ah1036i83cmbh3tv0s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
