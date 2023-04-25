@@ -104,7 +104,7 @@ class _Login extends State<Login> {
 
     final txtbutton = TextButton(
       onPressed: () {
-        widget.toggleView!();
+        //widget.toggleView!();
       },
       child: const Text(
         'Belum Punya Akun? Daftar',

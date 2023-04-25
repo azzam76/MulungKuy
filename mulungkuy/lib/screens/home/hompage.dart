@@ -14,9 +14,16 @@ class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final SignOut = ElevatedButton(
-      onPressed: () async {
-        await _auth.signOut();
+      // For Front End
+      onPressed: () {
+        Navigator.pushNamed(context, '/');
       },
+
+      // For Use
+
+      //onPressed: () async {
+      // await _auth.signOut();
+      //},
       style: ElevatedButton.styleFrom(
         primary: Colors.blueGrey[800],
         shape: RoundedRectangleBorder(
@@ -123,7 +130,9 @@ class _Home extends State<Home> {
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/track');
+                        },
                         child: Text('Track'),
                         style: ElevatedButton.styleFrom(
                           padding:
@@ -159,7 +168,9 @@ class _Home extends State<Home> {
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/order');
+                        },
                         child: Text('Edit'),
                         style: ElevatedButton.styleFrom(
                           padding:

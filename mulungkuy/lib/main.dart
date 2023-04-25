@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xFF57AE09),
         fontFamily: 'Montserrat',
       ),
-      initialRoute: '/track',
+      initialRoute: '/',
       routes: {
         '/': (context) => WelcomePage(),
         '/login': (context) => Login(),
