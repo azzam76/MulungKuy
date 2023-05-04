@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:mulungkuy/models/loginuser.dart';
 import 'package:mulungkuy/services/auth.dart';
-import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
   final Function? toggleView;
@@ -24,7 +24,6 @@ class _Login extends State<Login> {
   Widget build(BuildContext context) {
     final emailField = Container(
       width: 300,
-      height: 45,
       child: TextFormField(
         controller: _email,
         autofocus: false,
@@ -56,10 +55,8 @@ class _Login extends State<Login> {
         ),
       ),
     );
-
     final passwordField = Container(
         width: 300,
-        height: 45,
         child: TextFormField(
           obscureText: _obscureText,
           controller: _password,
@@ -101,10 +98,9 @@ class _Login extends State<Login> {
             ),
           ),
         ));
-
     final txtbutton = TextButton(
       onPressed: () {
-        //widget.toggleView!();
+        widget.toggleView!();
       },
       child: const Text(
         'Belum Punya Akun? Daftar',
@@ -116,7 +112,6 @@ class _Login extends State<Login> {
         ),
       ),
     );
-
     final loginEmailPasswordButon = Material(
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -127,27 +122,22 @@ class _Login extends State<Login> {
           ),
           padding: EdgeInsets.all(15.0),
         ),
-        //For UI Only
-        onPressed: () {
-          Navigator.pushNamed(context, '/home');
+        onPressed: () async {
+          if (_formKey.currentState!.validate()) {
+            dynamic result = await _auth.signInEmailPassword(
+                LoginUser(email: _email.text, password: _password.text));
+            if (result.uid == null) {
+              //null means unsuccessfull authentication
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      content: Text(result.code),
+                    );
+                  });
+            }
+          }
         },
-
-        //Activate for final
-        //onPressed: () async {
-        // if (_formKey.currentState!.validate()) {
-        //  dynamic result = await _auth.signInEmailPassword(
-        //     LoginUser(email: _email.text, password: _password.text));
-        // if (result.uid == null) {
-        //null means unsuccessfull authentication
-        //   showDialog(
-        //       context: context,
-        //       builder: (context) {
-        //         return AlertDialog(
-        //           content: Text(result.code),
-        //         );
-        //       });
-        // }
-        //}
         child: Text(
           "Log in",
           style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
@@ -155,46 +145,46 @@ class _Login extends State<Login> {
         ),
       ),
     );
-    return MaterialApp(
-      title: 'MulungKuy Login',
-      home: Scaffold(
-        backgroundColor: Color(0xFFFCFDFE),
-        body: Stack(
-          children: [
-            Positioned(
-              top: 0,
-              left: 0,
-              child: Image.asset(
-                'assets/images/Vector-2.png',
-              ),
-            ),
-            Positioned(
-              top: 0,
-              left: 0,
-              child: Image.asset(
-                'assets/images/Vector-3.png',
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              child: Image.asset(
-                'assets/images/Vector.png',
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              child: Image.asset(
-                'assets/images/Vector-1.png',
-              ),
-            ),
 
-            // Add other widgets here, such as a column or container
-            Center(
-              child: Container(
-                margin: EdgeInsets.all(20.0),
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      body: Stack(
+        children: [
+          Positioned(
+            top: 0,
+            left: 0,
+            child: Image.asset(
+              'assets/images/Vector-2.png',
+            ),
+          ),
+          Positioned(
+            top: 0,
+            left: 0,
+            child: Image.asset(
+              'assets/images/Vector-3.png',
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: Image.asset(
+              'assets/images/Vector.png',
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: Image.asset(
+              'assets/images/Vector-1.png',
+            ),
+          ),
+          Center(
+            child: Form(
+              key: _formKey,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
@@ -214,35 +204,24 @@ class _Login extends State<Login> {
                         fontWeight: FontWeight.normal,
                       ),
                     ),
+                    const SizedBox(height: 45.0),
                     emailField,
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 25.0),
                     passwordField,
-                    SizedBox(height: 10),
-                    SizedBox(
-                      width: 300,
-                      height: 20,
-                      child: Text(
-                        'Lupa Password?',
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                          fontSize: 10.0,
-                          color: Color.fromARGB(255, 0, 0, 0),
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
-                    ),
+                    const SizedBox(height: 35.0),
                     loginEmailPasswordButon,
+                    const SizedBox(height: 15.0),
                   ],
                 ),
               ),
             ),
-            Positioned(
-              bottom: 60,
-              left: MediaQuery.of(context).size.width / 2 - 100,
-              child: txtbutton,
-            ),
-          ],
-        ),
+          ),
+          Positioned(
+            bottom: 60,
+            left: MediaQuery.of(context).size.width / 2 - 106,
+            child: txtbutton,
+          ),
+        ],
       ),
     );
   }

@@ -70,7 +70,7 @@ class WelcomePage extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Navigator.pushNamed(context, '/register'); // go to registration
+                Navigator.pushNamed(context, '/register'); // go to registration
               },
               child: Text('Registrasi'),
               style: ButtonStyle(

@@ -21,7 +21,9 @@ class _Register extends State<Register> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    final emailField = TextFormField(
+    final emailField = Container(
+      width: 300,
+      child: TextFormField(
         controller: _email,
         autofocus: false,
         validator: (value) {
@@ -32,29 +34,46 @@ class _Register extends State<Register> {
             return 'Enter a Valid Email Address';
           }
         },
+        style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
         decoration: InputDecoration(
-            contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-            hintText: "Email",
-            border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))));
+          hintText: 'Email',
+          hintStyle: TextStyle(color: Color(0xFF99AAB5)),
+          filled: true,
+          fillColor: Color(0xFFEBF0F5),
+          contentPadding: EdgeInsets.all(15.0),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Color(0xFFEBF0F5),
+            ),
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+        ),
+      ),
+    );
 
-    final passwordField = TextFormField(
-        obscureText: _obscureText,
-        controller: _password,
-        autofocus: false,
-        validator: (value) {
-          if (value == null || value.trim().isEmpty) {
-            return 'This field is required';
-          }
-          if (value.trim().length < 8) {
-            return 'Password must be at least 8 characters in length';
-          }
-          // Return null if the entered password is valid
-          return null;
-        },
-        decoration: InputDecoration(
-            contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+    final passwordField = Container(
+        width: 300,
+        child: TextFormField(
+          obscureText: _obscureText,
+          controller: _password,
+          autofocus: false,
+          validator: (value) {
+            if (value == null || value.trim().isEmpty) {
+              return 'This field is required';
+            }
+            if (value.trim().length < 8) {
+              return 'Password must be at least 8 characters in length';
+            }
+            // Return null if the entered password is valid
+            return null;
+          },
+          decoration: InputDecoration(
             hintText: "Password",
+            hintStyle: TextStyle(color: Color(0xFF99AAB5)),
             suffixIcon: IconButton(
               icon:
                   Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
@@ -64,22 +83,37 @@ class _Register extends State<Register> {
                 });
               },
             ),
-            border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))));
-
+            filled: true,
+            fillColor: Color(0xFFEBF0F5),
+            contentPadding: EdgeInsets.all(15.0),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xFFEBF0F5),
+              ),
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+          ),
+        ));
     final txtbutton = TextButton(
         onPressed: () {
           widget.toggleView!();
         },
-        child: const Text('Go to login'));
+        child: const Text('Sudah Punya Akun?'));
 
     final registerButton = Material(
-      elevation: 5.0,
-      borderRadius: BorderRadius.circular(30.0),
-      color: Theme.of(context).primaryColor,
-      child: MaterialButton(
-        minWidth: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          fixedSize: Size(300, 45),
+          primary: Color(0xFF57AE09),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+          padding: EdgeInsets.all(15.0),
+        ),
         onPressed: () async {
           if (_formKey.currentState!.validate()) {
             dynamic result = await _auth.registerEmailPassword(
@@ -98,42 +132,78 @@ class _Register extends State<Register> {
         },
         child: Text(
           "Register",
-          style: TextStyle(color: Theme.of(context).primaryColorLight),
+          style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
           textAlign: TextAlign.center,
         ),
       ),
     );
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Text('Registration Demo Page'),
-        backgroundColor: Theme.of(context).primaryColor,
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      resizeToAvoidBottomInset: true,
+      body: Stack(
         children: [
-          Form(
-            autovalidateMode: AutovalidateMode.always,
-            key: _formKey,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const SizedBox(height: 45.0),
-                  emailField,
-                  const SizedBox(height: 25.0),
-                  passwordField,
-                  const SizedBox(height: 25.0),
-                  txtbutton,
-                  const SizedBox(height: 35.0),
-                  registerButton,
-                  const SizedBox(height: 15.0),
-                ],
+          Positioned(
+            top: 0,
+            left: 0,
+            child: Image.asset(
+              'assets/images/Vector-2.png',
+            ),
+          ),
+          Positioned(
+            top: 0,
+            left: 0,
+            child: Image.asset(
+              'assets/images/Vector-3.png',
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: Image.asset(
+              'assets/images/Vector.png',
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: Image.asset(
+              'assets/images/Vector-1.png',
+            ),
+          ),
+          Center(
+            child: Form(
+              autovalidateMode: AutovalidateMode.always,
+              key: _formKey,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Registrasi',
+                      style: TextStyle(
+                        fontSize: 32.0,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 45.0),
+                    emailField,
+                    const SizedBox(height: 25.0),
+                    passwordField,
+                    const SizedBox(height: 25.0),
+                    registerButton,
+                    const SizedBox(height: 35.0),
+                  ],
+                ),
               ),
             ),
+          ),
+          Positioned(
+            bottom: 60,
+            left: MediaQuery.of(context).size.width / 2 - 80,
+            child: txtbutton,
           ),
         ],
       ),

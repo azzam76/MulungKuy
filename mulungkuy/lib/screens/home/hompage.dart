@@ -15,15 +15,9 @@ class _Home extends State<Home> {
   Widget build(BuildContext context) {
     final SignOut = ElevatedButton(
       // For Front End
-      onPressed: () {
-        Navigator.pushNamed(context, '/');
+      onPressed: () async {
+        await _auth.signOut();
       },
-
-      // For Use
-
-      //onPressed: () async {
-      // await _auth.signOut();
-      //},
       style: ElevatedButton.styleFrom(
         primary: Colors.blueGrey[800],
         shape: RoundedRectangleBorder(
