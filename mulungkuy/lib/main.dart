@@ -21,61 +21,71 @@ void main() async {
   runApp(MyApp());
 }
 
-//For UI Only
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'My App',
-      theme: ThemeData(
-        primaryColor: Color(0xFF57AE09),
-        accentColor: Color(0xFF57AE09),
-        fontFamily: 'Montserrat',
-      ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => WelcomePage(),
-        '/login': (context) => Login(),
-        '/home': (context) => Home(),
-        '/order': (context) => OrderPage(),
-        '/history': (context) => OrderHistoryPage(),
-        '/track': (context) => DeliveryStatusPage(
-            deliveryStatus: 'Informasi Driver',
-            driverName: 'Pak Husen',
-            licensePlate: 'BL1000 LAM'),
-      },
-    );
-  }
-}
-
-
-// For Auth 
-
+// //For UI Only
 // class MyApp extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
-//     return StreamProvider<FirebaseUser?>.value(
-//       value: AuthService().user,
-//       initialData: null,
-//       child: MaterialApp(
-//         theme: ThemeData(
-//           brightness: Brightness.light,
-//           primaryColor: Colors.black,
-//           buttonTheme: ButtonThemeData(
-//             buttonColor: Colors.black,
-//             textTheme: ButtonTextTheme.primary,
-//             colorScheme:
-//                 Theme.of(context).colorScheme.copyWith(secondary: Colors.white),
-//           ),
-//           fontFamily: 'Georgia',
-//           textTheme: const TextTheme(
-//             headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-//             headline6: TextStyle(fontSize: 20.0, fontStyle: FontStyle.italic),
-//             bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
-//           ),
-//         ),
-//         home: WelcomePage(),
+//     return MaterialApp(
+//       title: 'My App',
+//       theme: ThemeData(
+//         primaryColor: Color(0xFF57AE09),
+//         accentColor: Color(0xFF57AE09),
+//         fontFamily: 'Montserrat',
 //       ),
+//       initialRoute: '/',
+//       routes: {
+//         '/': (context) => WelcomePage(),
+//         '/login': (context) => Login(),
+//         '/home': (context) => Home(),
+//         '/order': (context) => OrderPage(),
+//         '/history': (context) => OrderHistoryPage(),
+//         '/track': (context) => DeliveryStatusPage(
+//             deliveryStatus: 'Informasi Driver',
+//             driverName: 'Pak Husen',
+//             licensePlate: 'BL1000 LAM'),
+//       },
 //     );
 //   }
 // }
+
+// For Auth
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return StreamProvider<FirebaseUser?>.value(
+      value: AuthService().user,
+      initialData: null,
+      child: MaterialApp(
+          theme: ThemeData(
+            brightness: Brightness.light,
+            primaryColor: Colors.black,
+            buttonTheme: ButtonThemeData(
+              buttonColor: Colors.black,
+              textTheme: ButtonTextTheme.primary,
+              colorScheme: Theme.of(context)
+                  .colorScheme
+                  .copyWith(secondary: Colors.white),
+            ),
+            fontFamily: 'Georgia',
+            textTheme: const TextTheme(
+              headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+              headline6: TextStyle(fontSize: 20.0, fontStyle: FontStyle.italic),
+              bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+            ),
+          ),
+          initialRoute: '/',
+          routes: {
+            '/': (context) => WelcomePage(),
+            '/login': (context) => Login(),
+            '/home': (context) => Home(),
+            '/order': (context) => OrderPage(),
+            '/history': (context) => OrderHistoryPage(),
+            '/track': (context) => DeliveryStatusPage(
+                deliveryStatus: 'Informasi Driver',
+                driverName: 'Pak Husen',
+                licensePlate: 'BL1000 LAM'),
+          }),
+    );
+  }
+}
