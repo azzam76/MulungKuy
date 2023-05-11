@@ -1,7 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mulungkuy/models/loginuser.dart';
 import 'package:mulungkuy/services/auth.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Register extends StatefulWidget {
   final Function? toggleView;
@@ -115,6 +115,11 @@ class _Register extends State<Register> {
             ),
           ),
         ));
+    final txtbutton = TextButton(
+        onPressed: () {
+          widget.toggleView!();
+        },
+        child: const Text('Sudah Punya Akun?'));
 
     final namafield = Container(
       width: 300,
@@ -208,12 +213,6 @@ class _Register extends State<Register> {
         ),
       ),
     );
-    final txtbutton = TextButton(
-        onPressed: () {
-          Navigator.pushNamed(context, '/login');
-        },
-        child: const Text('Sudah Punya Akun?'));
-
     final registerButton = Material(
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -234,10 +233,10 @@ class _Register extends State<Register> {
             final String nohp = _nohp.text;
             createUser(name: name, email: email, alamat: alamat, nohp: nohp);
             if (result.uid == null) {
-              // null means unsuccessful authentication
-              await showDialog(
+              //null means unsuccessfull authentication
+              showDialog(
                   context: context,
-                  builder: (ctx) {
+                  builder: (context) {
                     return AlertDialog(
                       content: Text(result.code),
                     );
@@ -303,11 +302,11 @@ class _Register extends State<Register> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 40.0),
+                    const SizedBox(height: 45.0),
                     emailField,
-                    const SizedBox(height: 20.0),
+                    const SizedBox(height: 25.0),
                     passwordField,
-                    const SizedBox(height: 20.0),
+                    const SizedBox(height: 25.0),
                     Visibility(
                         visible: _showAdditionalFields,
                         child: Column(children: [
@@ -319,7 +318,7 @@ class _Register extends State<Register> {
                           const SizedBox(height: 20.0),
                         ])),
                     registerButton,
-                    const SizedBox(height: 30.0),
+                    const SizedBox(height: 35.0),
                   ],
                 ),
               ),

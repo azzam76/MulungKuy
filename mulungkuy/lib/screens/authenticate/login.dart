@@ -100,7 +100,7 @@ class _Login extends State<Login> {
         ));
     final txtbutton = TextButton(
       onPressed: () {
-        Navigator.pushNamed(context, '/register');
+        widget.toggleView!();
       },
       child: const Text(
         'Belum Punya Akun? Daftar',
